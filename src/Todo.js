@@ -66,6 +66,7 @@ function TodoApp() {
                         <input type="checkbox" checked={task.completed} onChange={() => toggleTask(task.id)} />
                         <span className={task.completed ? 'line-through' : ''}>{task.name}</span>
                         <button onClick={() => deleteTask(task.id)}>Delete</button>
+                        <button onClick={() => editTask(task.id, prompt('Edit task', task.name))}>Edit</button>
                     </li>
                 ))}
             </ul>
