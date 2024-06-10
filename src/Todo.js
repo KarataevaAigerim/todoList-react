@@ -28,6 +28,8 @@ function TodoApp() {
         setTasks(updatedTasks);
     };
 
+
+
     const deleteTask = (id) => {
         setTasks(tasks.filter(task => task.id !== id));
     };
@@ -54,7 +56,7 @@ function TodoApp() {
             </div>
             <p className="todo__comment">What's on your to do list?</p>
             <form onSubmit={addTask}>
-                <input className="task__input" type="text" value={taskInput} onChange={(e) => setTaskInput(e.target.value)} placeholder="e.g. do your homework" required />
+                <input className="task__input" type="text" value={taskInput} onChange={(e) => setTaskInput(e.target.value)} placeholder=" " required />
                 <p className="todo__comment">Pick a category</p>
                 <div className="todo__category--boxes">
                     <label className="todo__label todo__label--personal">
@@ -69,10 +71,14 @@ function TodoApp() {
             <ul>
                 {tasks.map(task => (
                     <li key={task.id} className={`todo__task todo__task--${task.type} ${task.completed ? 'completed' : ''}`}>
-                        <input type="checkbox" checked={task.completed} onChange={() => toggleTask(task.id)} />
-                        <span className={task.completed ? 'line-through' : ''}>{task.name}</span>
-                        <button onClick={() => deleteTask(task.id)}>Delete</button>
-                        <button onClick={() => editTask(task.id, prompt('Edit task', task.name))}>Edit</button>
+                        <div className="todo__task-items">
+                            <input type="radio" checked={task.completed} onChange={() => toggleTask(task.id)} />
+                            <span className={task.completed ? 'line-through' : ''}>{task.name}</span>
+                        </div>
+                        <div className="todo__task-btns">
+                            <button className="edit-btn"onClick={() => editTask(task.id, prompt('Edit task', task.name))}>Edit</button>
+                            <button className="delete-btn" onClick={() => deleteTask(task.id)}>Delete</button>
+                        </div>
                     </li>
                 ))}
             </ul>
