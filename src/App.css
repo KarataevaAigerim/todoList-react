@@ -10,7 +10,8 @@ body {
 }
 
 .App {
-  width: 100%;
+  /* max-width: 1000px; */
+  /* width: 100%; */
   margin: 50px;
   justify-content: center;
   align-items: center;
@@ -119,6 +120,24 @@ input[type="radio"] {
   background-color: rgb(55, 156, 239);
 }
 
+/* radio btns in the tasks list */
+
+.todo__task--personal input[type="radio"] {
+  border-color: rgb(241, 122, 204);
+}
+
+.todo__task--personal input[type="radio"]:checked {
+  background-color: rgb(241, 122, 204);
+}
+
+.todo__task--business input[type="radio"] {
+  border-color: #379cef;
+} 
+
+.todo__task--business input[type="radio"]:checked {
+  background-color: rgb(55, 156, 239);
+}
+
 /* btn */
 .btn {
   width: 100%;
@@ -169,7 +188,6 @@ input[type="radio"] {
 .delete-btn, .edit-btn {
   width: 100%;
   height: 20px;
-  border: none;
   color: #ffffff;
   background-color: #ccc;
   border-radius: 5px;
@@ -181,25 +199,25 @@ input[type="radio"] {
   display: flex; /* Use flexbox for alignment */
   justify-content: center; /* Center content horizontally */
   align-items: center; /* Center content vertically */
+  transition: background 0.3s ease, border-color 0.3s ease;
+  border: 1px solid transparent;
 }
 
-.todo__task--personal .todo__radio {
-  border-color: red;
+.delete-btn:hover {
+  border: 1px solid #f44336;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background-color: #ecd1d0;
 }
 
-.todo__task--personal .todo__radio:checked {
-  background-color: red;
+.edit-btn:hover {
+  border: 1px solid #4CAF50;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background-color: #d9eed8; 
 }
 
-.todo__task--business .todo__radio {
-  border-color: blue;
-}
-
-.todo__task--business .todo__radio:checked {
-  background-color: blue;
-}
 
 .completed {
   text-decoration: line-through;
   color: #ccc;
 }
+

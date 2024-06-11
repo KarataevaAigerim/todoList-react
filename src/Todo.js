@@ -21,14 +21,13 @@ function TodoApp() {
         setTaskType('');
     };
 
+
     const toggleTask = (id) => {
         const updatedTasks = tasks.map(task => 
             task.id === id ? { ...task, completed: !task.completed } : task
         );
         setTasks(updatedTasks);
     };
-
-
 
     const deleteTask = (id) => {
         setTasks(tasks.filter(task => task.id !== id));
@@ -40,6 +39,8 @@ function TodoApp() {
         );
         setTasks(updatedTasks);
     };
+
+    
 
     return (
         <div className="todo">
@@ -70,8 +71,8 @@ function TodoApp() {
             </form>
             <ul>
                 {tasks.map(task => (
-                    <li key={task.id} className={`todo__task todo__task--${task.type} ${task.completed ? 'completed' : ''}`}>
-                        <div className="todo__task-items">
+                    <li key={task.id} className="todo__task">
+                        <div   className={`todo__task-items todo__task--${task.type} ${task.completed ? 'completed' : ''}`}>
                             <input type="radio" checked={task.completed} onChange={() => toggleTask(task.id)} />
                             <span className={task.completed ? 'line-through' : ''}>{task.name}</span>
                         </div>
@@ -87,3 +88,5 @@ function TodoApp() {
 }
 
 export default TodoApp;
+
+
