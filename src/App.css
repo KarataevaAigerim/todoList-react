@@ -10,7 +10,6 @@ body {
 }
 
 .App {
-  /* max-width: 1000px; */
   /* width: 100%; */
   margin: 50px;
   justify-content: center;
@@ -54,6 +53,7 @@ body {
   border: none;
   outline: none;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
 }
 
 .task__input:focus {
